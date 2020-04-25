@@ -5,49 +5,47 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" android:background="#c5eff7">
+    <Button
+            android:text="Get Advice"
+            android:layout_width="0dp"
+            android:layout_height="67dp"
+            android:id="@+id/adviceButton"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp" android:onClick="getAdv" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.882"/>
     <TextView
             android:text="Weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView8"
+            android:layout_width="78dp"
+            android:layout_height="38dp" android:id="@+id/textView8"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.079" app:layout_constraintVertical_bias="0.063"
-            android:editable="false"/>
+            android:editable="false" android:textSize="20sp" android:gravity="center_horizontal|center_vertical"
+            android:background="#4b77be" android:textColor="@android:color/black"/>
     <TextView
             android:text="Height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="78dp"
+            android:layout_height="38dp"
             android:id="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView8" android:layout_marginTop="36dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.079"
-            app:layout_constraintVertical_bias="0.027"/>
+            app:layout_constraintVertical_bias="0.027" android:textSize="20sp"
+            android:gravity="center_horizontal|center_vertical" android:background="#4b77be"
+            android:textColor="@android:color/black"/>
     <TextView
             android:text="BMI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="78dp"
+            android:layout_height="38dp"
             android:id="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.079"
-            app:layout_constraintVertical_bias="0.014"/>
-    <Button
-            android:text="Calculate BMI"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/bmiButton" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/adviceButton" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="1.0"/>
-    <Button
-            android:text="Get Advice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/adviceButton" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.992"/>
+            app:layout_constraintVertical_bias="0.014" android:textSize="20sp"
+            android:gravity="center_horizontal|center_vertical" android:background="#4b77be"
+            android:textColor="@android:color/black"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,31 +54,52 @@
             android:id="@+id/weightInput"
             app:layout_constraintStart_toEndOf="@+id/textView8" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.387" app:layout_constraintVertical_bias="0.053"
-            android:editable="true"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/heightInput"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.616" app:layout_constraintVertical_bias="0.154"
+            app:layout_constraintHorizontal_bias="0.191" app:layout_constraintVertical_bias="0.064"
             android:editable="true"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText3"
+            android:id="@+id/heightInput"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.616" app:layout_constraintVertical_bias="0.249"
+            app:layout_constraintHorizontal_bias="0.616" app:layout_constraintVertical_bias="0.193"
             android:editable="true"/>
     <RadioGroup
-            android:layout_width="0dp"
-            android:layout_height="73dp"
+            android:layout_width="404dp"
+            android:layout_height="152dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_horizontal|center_vertical" android:id="@+id/radioGroup2">
+        <RadioButton
+                android:text="lb/inch"
+                android:layout_width="143dp"
+                android:layout_height="wrap_content" android:id="@+id/imperialButton" android:textSize="20sp"
+                android:padding="8dp" android:onClick="imperialHint"/>
+        <RadioButton
+                android:text="kg/m"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content" android:id="@+id/metricButton" android:textSize="20sp"
+                android:padding="8dp" android:onClick="metricHint"/>
+    </RadioGroup>
+    <Button
+            android:text="Calculate BMI"
+            android:layout_width="0dp"
+            android:layout_height="67dp"
+            android:id="@+id/bmiButton"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp"
+            android:onClick="calcBMI"/>
+    <TextView
+            android:layout_width="209dp"
+            android:layout_height="38dp"
+            android:id="@+id/bmiOutput"
+            android:gravity="center_horizontal|center_vertical" android:textSize="20sp" android:background="#5333ed"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/heightInput"
+            app:layout_constraintHorizontal_bias="0.183"
+            app:layout_constraintVertical_bias="0.069" android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
