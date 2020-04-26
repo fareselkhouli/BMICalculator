@@ -40,21 +40,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void calcBMI(View v){
 
+        if(weightIn.getText().toString().equals("") || heightIn.getText().toString().equals("")){
+            Toast toast = Toast.makeText(MainActivity.this, "Invalid Input",Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         int weight = Integer.parseInt(weightIn.getText().toString());
-        double height = Integer.parseInt(heightIn.getText().toString());
-        if(weight == 0 || height == 0){
+        double height = Double.parseDouble(heightIn.getText().toString());
+        if(weight <= 0 || height <= 0){
             Toast toast = Toast.makeText(MainActivity.this, "Invalid Input",Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
 
         if(imperialButton.isChecked()){
-            double bmi = imperialBMI(weight,height);
+            double bmi = imperialBMI(height,weight);
             bmiOut.setText(String.format("%.2f",bmi));
             return;
         }
         if(metricButton.isChecked()){
-            double bmi = metricBMI(weight,height);
+            double bmi = metricBMI(height,weight);
             bmiOut.setText(String.format("%.2f",bmi));
             return;
         }
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
-    private double imperialBMI(int height, double weight){
+    private double imperialBMI(double height, int weight){
         int formulaMult = 703;
         double bmi = 0;
         bmi = (double) (weight*formulaMult) / (height*height);
@@ -71,13 +76,21 @@ public class MainActivity extends AppCompatActivity {
         return bmi;
     }
 
-    private double metricBMI(int height, double weight){
+    private double metricBMI(double height, int weight){
         double bmi = 0;
         bmi =(double) weight / (height * height);
         return bmi;
     }
 
     public void getAdv(View view){
+        if(bmiOut.getText().toString().equals("")){
+            Toast toast = Toast.makeText(MainActivity.this, "Invalid Input Please Calculate BMI",Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        double bmi = Double.parseDouble(bmiOut.getText().toString());
+
+
 
     }
 
