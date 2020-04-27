@@ -4,7 +4,7 @@
  */
 package com.example.bmicalculator;
 
-import android.util.Log;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -70,14 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
     private double imperialBMI(double height, int weight){
         int formulaMult = 703;
-        double bmi = 0;
+        double bmi;
         bmi = (double) (weight*formulaMult) / (height*height);
-
         return bmi;
     }
 
     private double metricBMI(double height, int weight){
-        double bmi = 0;
+        double bmi;
         bmi =(double) weight / (height * height);
         return bmi;
     }
@@ -90,10 +89,9 @@ public class MainActivity extends AppCompatActivity {
         }
         double bmi = Double.parseDouble(bmiOut.getText().toString());
 
-    }
-
-    public void getAdvclicked(View view){
-        TransitionManager.go(activity_advice);
+        Intent intent = new Intent(MainActivity.this,Advice.class);
+        intent.putExtra("bmi",bmi);
+        startActivity(intent);
     }
 
     public void imperialHint(View view) {

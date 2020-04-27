@@ -1,58 +1,60 @@
+package com.example.bmicalculator;
 /**
  * @FaresElkhouli
  * @ZhiyuFeng
  */
-package com.example.bmicalculator;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class Advice extends AppCompatActivity {
-    //instantiate objects
-    ImageView bmiPicture;
-    Button BackButton;
-    TextView AdviceBmiout;
 
+    ImageView imageOut;
+    TextView adviceOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advice);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        AdviceBmi = findViewById(R.id.adviceOutput);
-        BackButton = findViewById(R.id.BackButton);
-        bmiPicture = findViewById(R.id.imageOutput);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
+        adviceOut = findViewById(R.id.adviceOut);
+        imageOut = findViewById(R.id.imageOut);
+        double defaultVal = -1;
+        double bmiThresh1 = 18.5;
+        double bmiThresh2 = 24.9;
+        double bmiThresh3 = 29.9;
 
-    public void GetAdviceclicked(View view){
-        double bmi = Double.parseDouble(bmiOut.getText().toString());
-        if (bmi<18){
-            AdviceBmiout.setText("Under Weight");
-            bmiPicture.setImageResource(R.id.bmichart);
-        } else if (18<=bmi<23){
-            AdviceBmiout.setText("Normal");
-            bmiPicture.setImageResource(R.id.bmichart2);
-        } else if (23<=bmi<27){
-            AdviceBmiout.setText("Over Weight");
-            bmiPicture.setImageResource(R.id.bmichart3);
-        } else if (bmi>=27){
-            AdviceBmiout.setText("Obesity");
-            bmiPicture.setImageResource(R.id.bmichart4);
+        double bmi = getIntent().getDoubleExtra("bmi",defaultVal);
+        if(bmi == defaultVal){
+            Toast toast = Toast.makeText(Advice.this, "Error please go back and try again",Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (bmi<bmiThresh1){
+            adviceOut.setText("Under Weight");
+            imageOut.setImageResource(R.drawable.bmichart);
+        } else if (bmi >= bmiThresh1 && bmi < bmiThresh2){
+            adviceOut.setText("Normal");
+            imageOut.setImageResource(R.drawable.bmichart2);
+        } else if (bmi >= bmiThresh2 && bmi < bmiThresh3){
+            adviceOut.setText("Over Weight");
+            imageOut.setImageResource(R.drawable.bmichart3);
+        } else if (bmi>=bmiThresh3){
+            adviceOut.setText("Obese");
+            imageOut.setImageResource(R.drawable.bmichart4);
         }
     }
-
-    public void BackButtonclicked(View view){
-        TransitionManager.go(activity_main);
-    }
-
-
 
 }
