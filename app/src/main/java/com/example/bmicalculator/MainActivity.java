@@ -90,8 +90,10 @@ public class MainActivity extends AppCompatActivity {
         }
         double bmi = Double.parseDouble(bmiOut.getText().toString());
 
+    }
 
-
+    public void getAdvclicked(View view){
+        TransitionManager.go(activity_advice);
     }
 
     public void imperialHint(View view) {
